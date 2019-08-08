@@ -1,5 +1,5 @@
 /* This is the data we will be using, study it but don't change anything, yet. */
-
+window.addEventListener('load', (e) => {
 let menuItems = [
   'Students',
   'Faculty',
@@ -33,3 +33,24 @@ let menuItems = [
   Step 6: add the menu component to the DOM.
   
 */
+
+  function menuCreator(){
+    let div2 = document.createElement('div');
+    div2.classList.add('menu');
+    let ul = document.createElement('ul');
+    div2.appendChild('ul');
+    function liCreater(text){
+      let li = document.createElement('li');
+      li.textContent = text;
+      ul.appendChild('li');
+    };
+    return div2
+  };
+
+  let menuButton = document.querySelector('menu-button');
+
+  for(let i=0; i<menuItems.length; i++){
+    let div2 = menuCreator(menuItems[i]);
+    menuButton.appendChild(div2);
+  };
+});
