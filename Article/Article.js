@@ -1,5 +1,6 @@
 /* This is the data we will be using to create our article components */
 /* Look over this data, then proceed to line 91*/
+window.addEventListener('load', (e) => {
 const data = [
   {
     title: 'Lambda School Students: "We\'re the best!"',
@@ -112,3 +113,45 @@ const data = [
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
+
+
+  function divCreator(e) {
+    let div = document.createElement('div');
+    div.classList.add('article');
+    let h2 = document.createElement('h2');
+    h2.textContent = e.title;
+    div.appendChild(h2);
+    let date = document.createElement('p');
+    date.classList.add('date');
+    date.textContent = e.date;
+    div.appendChild(date);
+    let first = document.createElement('p');
+    first.classList.add('firstParagraph');
+    first.textContent = e.firstParagraph;
+    div.appendChild(first);
+    let second = document.createElement('p');
+    second.classList.add('secondParagraph');
+    second.textContent = e.secondParagraph;
+    div.appendChild(second);
+    let third = document.createElement('p');
+    third.classList.add('thirdParagraph');
+    third.textContent = e.thirdParagraph;
+    div.appendChild(third);
+    let span = document.createElement('span');
+    span.classList.add('expandButton');
+    span.addEventListener('click', (e) =>{
+      div.toggle('article-open')
+    });
+    div.appendChild(span);
+    return div;
+  };  
+
+  let articles = document.querySelector('.articles');
+  console.log(articles);
+  console.log(articles);
+
+  for(let i=0; i< data.length; i++){
+    let div = divCreator(data[i]);
+    articles.appendChild(div);
+  }
+});
