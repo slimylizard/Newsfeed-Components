@@ -140,7 +140,7 @@ const data = [
     let span = document.createElement('span');
     span.classList.add('expandButton');
     span.addEventListener('click', (e) =>{
-      div.toggle('article-open')
+      span.classList.toggle('.article-open')
     });
     div.appendChild(span);
     return div;
